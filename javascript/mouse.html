@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Over Event</title>
+</head>
+<body style="background-color: rgb(72, 117, 67);">
+
+    <h1>crotche toy</h1>
+    <h2>Mouse Over here</h2>
+    <style>
+        h1,h2,p{
+    text-align: center;
+    color: white;
+
+}
+    </style>
+
+
+    <p id="content" style="cursor:pointer; color:white;">Hover over me!</p>
+
+    <script>
+        const contentDiv = document.getElementById('content'); 
+        const initialText = 'Hover over me!';
+
+        const newContent = `
+             <img src="https://cdn.ballwool.com/products/l/129846_ba9ab3eafae95d801fa8ebb443208525e00123d6d4f92ef58985adfe125adedfaf35b459d73aa1d361e1acd138c58da187b39d179271be604050fbe9eea02b96.webp"
+         alt="New Image" style="width:300px;">
+    <p>cute.</p>
+        `;
+
+        
+        contentDiv.addEventListener('mouseover', function () { 
+            contentDiv.innerHTML = newContent;
+        });
+
+        
+        contentDiv.addEventListener('mouseout', function () { 
+            contentDiv.innerHTML = initialText;
+        });
+    </script>
+
+</body>
+</html>

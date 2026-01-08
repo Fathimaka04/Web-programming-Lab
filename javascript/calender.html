@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function generateCalendar(year) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    for (let month = 0; month < 12; month++) {
+        let output ='\n'+ months[month] + ' ' + year + '\n';
+        output += 'Su Mo Tu We Th Fr Sa \n';
+
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        let calendar = '';
+        let dayOfWeek = 0;
+        // Add empty spaces
+        for (let i = 0; i < firstDay; i++) {
+            calendar += ' ';
+            dayOfWeek++;
+        }
+        // Add days
+        for (let day = 1; day <= daysInMonth; day++) {
+            calendar += day.toString().padStart(2, ' ') + ' ';
+            dayOfWeek++;
+            if (dayOfWeek === 7) {
+                calendar += '\n';
+                dayOfWeek = 0;
+            }
+        }
+              if (dayOfWeek !== 0) {
+            calendar += '\n';
+        }
+        
+        document.body.innerHTML += `<pre>${output + calendar}</pre>`;
+    }
+}
+// Usage
+const year = prompt("Enter year:");
+generateCalendar(parseInt(year));
+</script>
+
+</body>
+</html>

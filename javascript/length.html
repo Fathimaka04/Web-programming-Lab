@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lengthconversion</title>
+</head>
+<body>
+    <script>
+        function convertLength(length,from,to){
+            if(from!=='km' && from!=='miles' && from!=='feet' ){
+                return `invalid:${from}`;
+            }
+           else if (from==='miles'&& to==='km'){
+                const result= (length*1.6);
+                return `${result} ${to}`;
+            }
+        else if(from==='miles'&& to==='feet'){
+            const result=(length*5820)
+            return `${result} ${to}`;
+        }
+        else if(from==='km' && to==='miles'){
+            const result= (length/1.6);
+           return  `${result} ${to}`;
+        }
+        else if(from==='km' && to==='feet'){
+            const result = length*3281;
+            return `${result} ${to}`;
+        }
+        else if(from==='feet' && to==='miles'){
+            const result= length/5820;
+            return `${result} ${to}`;
+        }
+        else if( from==='feet' && to==='km'){
+            const result=length/3281;
+            return `${result} ${to}`;
+        }
+       else if(from===to){
+        return `${length} ${to}`;
+       }
+      
+        }
+        console.log(convertLength(5,'miles','lb'));
+        console.log(convertLength(5,'km','feet'));
+    </script>
+</body>
+</html>
